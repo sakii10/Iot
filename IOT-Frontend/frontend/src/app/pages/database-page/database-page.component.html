@@ -1,0 +1,29 @@
+<div class="database-page-container" id="database-page">
+    <div class="main-navbar" id="navbar">
+        <app-navbar></app-navbar>
+    </div>
+
+    <div class="workspace" id="workspace">
+          <form [formGroup]="formGroup">
+
+  <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date"
+         formControlName="date" class="mat-input-element"
+   (focus)="isPickerFocused = true" (blur)="isPickerFocused = false">
+    <mat-datepicker-toggle matSuffix [for]="$any(picker)" ></mat-datepicker-toggle>
+    <ngx-mat-datetime-picker #picker [showSpinners]="false" [showSeconds]="false"
+                             (opened)="isCalendarOpen = true" (closed)="isCalendarOpen = false"
+                             [stepHour]="1" [stepMinute]="1" [stepSecond]="1"
+                             [touchUi]="false" [enableMeridian]="false"
+                             [color]="color"
+                             [disableMinute]="false" [hideTime]="false">
+    </ngx-mat-datetime-picker>
+<span><button *ngIf="!isCalendarOpen" (click)="setClock()">Set Clock</button>
+      <button *ngIf="!isCalendarOpen" (click)="closeClock()">Turn off</button>
+</span>
+    </form>
+
+</div>
+
+
+</div>
+
